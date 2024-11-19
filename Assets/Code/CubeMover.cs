@@ -1,19 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CubeMover : MonoBehaviour
 {
     public float moveSpeed = 5f; // Speed at which the cube moves
     private Vector3 targetPosition; // The position to move towards
     private bool isMoving = false; // Whether the cube should be moving
-
-    SavePlayerPos playerPosData;
-
-    private void Awake()
-    {
-        playerPosData = FindObjectOfType<SavePlayerPos>();
-        playerPosData.PlayerPosLoad();
-    }
 
     void Update()
     {
@@ -88,7 +79,6 @@ public class CubeMover : MonoBehaviour
         {
             isMoving = false;
             Debug.Log("Reached the destination.");
-            playerPosData.PlayerPosSave();
         }
     }
 }
